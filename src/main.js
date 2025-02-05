@@ -1,5 +1,11 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import '@/assets/styles/custom.scss';
+import Vue from '@/App.vue';
+import i18n from '@/i18n.js';
+import router from '@/router';
 
-createApp(App).mount('#app')
+const app = createApp(Vue);
+
+app.use(i18n);
+app.use(router);
+app.mount('#pokedex');

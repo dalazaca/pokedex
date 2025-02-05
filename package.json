@@ -11,7 +11,11 @@
     "lint": "eslint . --ext .vue,.js --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "bootstrap": "^5.3.3",
+    "pinia": "^2.3.1",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.0",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
@@ -27,6 +31,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
     "prettier": "^3.4.2",
+    "sass": "^1.77.5",
     "vite": "^6.0.5"
   }
 }

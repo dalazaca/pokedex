@@ -1,0 +1,51 @@
+// Include functions first
+@import 'bootstrap/scss/functions';
+
+// Customize some defaults
+$font-family-sans-serif: 'Lato', serif;
+$body-bg: #f9f9f9;
+$body-color: #5e5e5e;
+$primary: #f22539;
+$primary-dark: #c00e20;
+$border-radius: 60px;
+
+// Required
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/modal'; // Requires transitions
+@import 'bootstrap/scss/offcanvas'; // Requires transitions
+
+// Utilities
+@import 'bootstrap/scss/utilities/api';
+
+.btn {
+  --bs-btn-padding-x: 20px;
+  --bs-btn-padding-y: 11px;
+
+  &:hover {
+    color: $white;
+    background-color: darken($primary, 12%);
+    border-color: darken($primary, 12%);
+  }
+
+  &:first-child:active {
+    color: $white;
+    background-color: $primary-dark;
+    border-color: $primary-dark;
+  }
+
+  &-primary {
+    color: $white;
+  }
+}

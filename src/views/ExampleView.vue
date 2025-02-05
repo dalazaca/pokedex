@@ -1,6 +1,5 @@
 <template>
-  <h1>Hola que hace</h1>
-  <RouterLink to="/about">Go to About</RouterLink>
+  <h2>Prueba de que funciona</h2>
 </template>
 
 <script>

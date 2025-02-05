@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue';
 console.log(process.env.NODE_ENV);
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.NODE_ENV === 'development' ? '/' : '/pokedex/',
+  base: process.env.NODE_ENV === 'production' ? '/pokedex/' : '/',
   css: {
     preprocessorOptions: {
       scss: {

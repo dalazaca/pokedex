@@ -1,27 +1,26 @@
 import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'url';
 
-console.log(process.env.NODE_ENV);
 export default defineConfig({
   plugins: [vue()],
   base: process.env.NODE_ENV === 'production' ? '/pokedex/' : '/',
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern',
-        silenceDeprecations: [
-          'import',
-          'mixed-decls',
-          'color-functions',
-          'global-builtin',
-        ],
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: [
+          'mixed-decls',
+          'color-functions',
+          'global-builtin',
+          'import',
+        ],
+      },
     },
   },
 });

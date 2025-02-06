@@ -4,11 +4,9 @@ export function handleError(error) {
   const toastLiveExample = document.getElementById('liveToast');
   const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 
-  console.log(toastLiveExample);
-
   if (error.response) {
-    console.error('Error de respuesta:', error.response.data);
-    console.error('Código de estado:', error.response.status);
+    console.error('Response error:', error.response.data);
+    console.error('Status code:', error.response.status);
     console.error('Headers:', error.response.headers);
 
     if (error.response.status === 404) {
@@ -21,7 +19,7 @@ export function handleError(error) {
       toastBootstrap.show();
     }
   } else if (error.request) {
-    console.error('Error de solicitud:', error.request);
+    console.error('Request error:', error.request);
     var toastBody = document
       .getElementById('liveToast')
       .getElementsByClassName('toast-body');

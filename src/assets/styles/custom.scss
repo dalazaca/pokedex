@@ -49,7 +49,8 @@ $border-radius: 60px;
 @import 'bootstrap/scss/utilities/api';
 
 #pokedex {
-  .container {
+  .container,
+  .modal-dialog {
     max-width: 570px;
   }
 
@@ -91,7 +92,7 @@ $border-radius: 60px;
   }
 
   .toast {
-    background-color: $primary;
+    background-color: #eca539;
     color: $white;
   }
 }

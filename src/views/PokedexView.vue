@@ -12,13 +12,18 @@
           :key="pokemon.name"
           :name="capitalizeFirstLetter(pokemon.name)"
           :favorite="pokedexStore.isFavorite(pokemon.name)"
-          @seeDetails="prueba1"
+          @seeDetails="detailPokemon(pokemon.name)"
           @toogleFavorite="pokedexStore.toggleFavorite(pokemon.name)"
         />
         <div v-if="loadingScroll" class="loading">
           <p>{{ $t('pokedex.loader') }}</p>
         </div>
       </div>
+      <poke-details-modal
+        :pokemon="pokemonSelected"
+        :favorite="pokedexStore.isFavorite(pokemonSelected.name)"
+        @toogleFavorite="pokedexStore.toggleFavorite(pokemonSelected.name)"
+      />
     </div>
 
     <!--navbar-->
@@ -62,11 +67,13 @@
 import LoadingPage from '@/components/shared/LoadingPage.vue';
 import PokeSearch from '@/components/ui/PokeSearch.vue';
 import PokeItem from '@/components/ui/PokeItem.vue';
+import PokeDetailsModal from '@/components/ui/PokeDetailsModal.vue';
 
 import { onMounted, ref, computed } from 'vue';
 import { usePokedexStore } from '@/stores/pokedexStore';
 import pokedexService from '@/services/pokedexService';
 
+import * as bootstrap from 'bootstrap';
 import { delay, capitalizeFirstLetter } from '@/utils';
 
 // This props is obtained in router.js
@@ -83,6 +90,11 @@ const offset = ref(0);
 
 // Infinite scroll
 const loadingScroll = ref(false);
+
+// Pokemon selected details
+const pokemonSelected = ref({
+  name: '',
+});
 
 onMounted(async () => {
   if (!initialLoading) return;
@@ -140,9 +152,18 @@ const pokemonsFiltered = computed(() => {
   return pokemonList;
 });
 
-function prueba1(name) {
-  console.log('Datos recibidos:', name);
-}
+const detailPokemon = async (name) => {
+  try {
+    const details = await pokedexService.getPokemonDetail(name);
+    details.image = details.sprites.other['official-artwork'].front_default;
+    pokemonSelected.value = details;
+
+    var myModal = bootstrap.Modal.getOrCreateInstance('#pokeDetailsModal');
+    myModal.show();
+  } catch (err) {
+    console.error(err);
+  }
+};
 </script>
 
 <style lang="scss" scoped>

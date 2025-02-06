@@ -11,6 +11,13 @@
   "pokedex": {
     "all": "All",
     "favorites": "Favorites",
-    "loader": "Loading..."
+    "loader": "Loading...",
+    "pokemon_details": {
+      "name": "Name:",
+      "weight": "Weight:",
+      "height": "Height:",
+      "types": "Types:",
+      "share_to_friends": "Share to my friends"
+    }
   }
 }

@@ -37,7 +37,10 @@ $border-radius: 60px;
 @import 'bootstrap/scss/grid';
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/toasts';
 @import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/close';
 @import 'bootstrap/scss/modal'; // Requires transitions
 @import 'bootstrap/scss/offcanvas'; // Requires transitions
@@ -67,6 +70,10 @@ $border-radius: 60px;
       border-color: $primary-dark;
     }
 
+    img {
+      margin-right: 10px;
+    }
+
     &-primary {
       color: $white;
 
@@ -75,6 +82,16 @@ $border-radius: 60px;
         background-color: $primary-dark;
         border-color: $primary-dark;
       }
+
+      &.disabled {
+        background-color: $gray-500;
+        border: 1px solid $gray-500;
+      }
     }
+  }
+
+  .toast {
+    background-color: $primary;
+    color: $white;
   }
 }

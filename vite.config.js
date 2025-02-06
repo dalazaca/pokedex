@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/pokedex/',
+  base: process.env.NODE_ENV === 'production' ? '/pokedex/' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

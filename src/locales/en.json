@@ -8,5 +8,9 @@
   "loading": {
     "alt_image": "Pokeball loading"
   },
-  "list_pokemons": {}
+  "pokedex": {
+    "all": "All",
+    "favorites": "Favorites",
+    "loader": "Loading..."
+  }
 }

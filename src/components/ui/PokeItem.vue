@@ -46,6 +46,7 @@ function toogleFavorite() {
   width: 100%;
   position: relative;
   padding: 8px 10px;
+  margin-bottom: 10px;
   border: 1px solid $white;
   background-color: $white;
   border-radius: 5px;

@@ -1,9 +1,8 @@
 <template>
-  <div class="container">
-    <RouterView />
-  </div>
+  <router-view />
+  <toast />
 </template>
 
-<script setup></script>
-
-<style></style>
+<script setup>
+import Toast from '@/components/shared/Toast.vue';
+</script>

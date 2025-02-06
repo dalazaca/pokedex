@@ -1,5 +1,5 @@
 <template>
-  <div class="poke-search input-group mb-3">
+  <div class="poke-search input-group">
     <span class="input-group-text">
       <img src="@/assets/icons/search.svg" alt="search pokemon" />
     </span>
@@ -8,8 +8,8 @@
       class="form-control"
       placeholder="Search"
       aria-label="Search"
-      :modelValue="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event.target.value)"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
   </div>
 </template>

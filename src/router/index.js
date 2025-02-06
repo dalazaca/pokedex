@@ -1,12 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Welcome from '@/views/Welcome.vue';
-import ListPokemons from '@/views/ListPokemons.vue';
+import WelcomeView from '@/views/WelcomeView.vue';
+import PokedexView from '@/views/PokedexView.vue';
 
 const router = createRouter({
   history: createWebHistory('/pokedex/'),
   routes: [
-    { path: '/', name: 'welcome', component: Welcome },
-    { path: '/list', name: 'list', component: ListPokemons },
+    { path: '/', name: 'welcome', component: WelcomeView },
+    {
+      path: '/list',
+      name: 'list',
+      component: PokedexView,
+      props: { onlyFavorites: false },
+    },
+    {
+      path: '/list/favorites',
+      name: 'favorites',
+      component: PokedexView,
+      props: { onlyFavorites: true },
+    },
   ],
 });
 

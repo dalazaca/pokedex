@@ -6,8 +6,31 @@
     <RouterLink class="btn btn-primary" :to="{ name: 'list' }">{{
       $t('welcome.action')
     }}</RouterLink>
+    <br class="pt-5" />
+    <poke-item
+      name="Charmander"
+      :favorite="false"
+      @seeDetails="prueba1"
+      @toogleFavorite="prueba2"
+    />
+    <br class="pt-5" />
+    <poke-search />
+    <br class="pt-5" />
   </div>
 </template>
+
+<script setup>
+import PokeItem from '@/components/ui/PokeItem.vue';
+import PokeSearch from '@/components/ui/PokeSearch.vue';
+
+function prueba1(name) {
+  console.log('Datos recibidos:', name);
+}
+
+function prueba2(name) {
+  console.log('Datos recibidos 2:', name);
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/custom.scss';

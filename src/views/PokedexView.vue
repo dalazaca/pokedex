@@ -6,7 +6,11 @@
   <div v-else id="pokemons-list">
     <div class="container">
       <poke-search v-model="pokemonSearch" />
-      <div class="infinite-scroll-container" @scroll="handleScroll">
+      <div
+        v-if="pokemonsFiltered.length > 0"
+        class="infinite-scroll-container"
+        @scroll="handleScroll"
+      >
         <poke-item
           v-for="pokemon in pokemonsFiltered"
           :key="pokemon.name"
@@ -18,6 +22,13 @@
         <div v-if="loadingScroll" class="loading">
           <p>{{ $t('pokedex.loader') }}</p>
         </div>
+      </div>
+      <div v-else class="empty-list text-center">
+        <h1>{{ $t('pokedex.empty_list.title') }}</h1>
+        <p>{{ $t('pokedex.empty_list.description') }}</p>
+        <router-link :to="{ name: 'welcome' }" class="btn btn-primary mt-3">
+          {{ $t('pokedex.empty_list.action') }}
+        </router-link>
       </div>
       <poke-details-modal
         :pokemon="pokemonSelected"
@@ -183,6 +194,22 @@ const detailPokemon = async (name) => {
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .empty-list {
+    h1 {
+      margin-bottom: 0;
+      font-size: $h1-font-size;
+      font-weight: $font-weight-bold;
+      color: $gray-900;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 0;
+      text-align: center;
     }
   }
 

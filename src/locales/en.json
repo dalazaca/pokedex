@@ -12,6 +12,11 @@
     "all": "All",
     "favorites": "Favorites",
     "loader": "Loading...",
+    "empty_list": {
+      "title": "Uh-oh!",
+      "description": "You look lost on your journey!",
+      "action": "Go back home"
+    },
     "pokemon_details": {
       "name": "Name:",
       "weight": "Weight:",
